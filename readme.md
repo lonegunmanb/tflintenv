@@ -11,7 +11,7 @@ To use `genv`, follow the steps below:
 3. Run the `go run` command with the appropriate flags. For example:
 
 ```bash
-go run main.go -u "https://releases.hashicorp.com/vault/{{ .Version }}/vault_{{ .Version }}_{{ .Os }}_{{ .Arch }}.zip" -n vaultenv -b vault --git-repo https://github.com/hashicorp/vault.git 
+go run main.go -u "https://github.com/terraform-linters/tflint/releases/download/{{ .Version }}/tflint_{{ .Os }}_{{ .Arch }}.zip" -n tflintenv -b tflint --git-repo https://github.com/terraform-linters/tflint.git
 ```
 
 In this command:
