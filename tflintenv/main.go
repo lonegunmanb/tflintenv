@@ -6,7 +6,7 @@ import (
 	"os"
 	"os/signal"
 
-    "github.com/lonegunmanb/genv/pkg"
+	"github.com/lonegunmanb/genv/pkg"
 	"github.com/spf13/cobra"
 )
 
@@ -15,9 +15,18 @@ func main() {
 	downloadInstaller, _ := pkg.NewDownloadInstaller("https://github.com/terraform-linters/tflint/releases/download/{{ .Version }}/tflint_{{ .Os }}_{{ .Arch }}.zip", ctx)
 	goBuildInstaller := pkg.NewGoBuildInstaller("https://github.com/terraform-linters/tflint.git", "tflint", "", ctx)
 	fallbackInstaller := pkg.NewFallbackInstaller(downloadInstaller, goBuildInstaller)
-	homeDir, err := os.UserHomeDir()
-	if err != nil {
-		panic(err.Error())
+	var homeDir string
+	var err error
+	if homeDir = os.Getenv("TFLINTENV_HOME_DIR"); homeDir != "" {
+		err = os.MkdirAll(homeDir, os.ModePerm)
+		if err != nil {
+			panic(err.Error())
+		}
+	} else {
+		homeDir, err = os.UserHomeDir()
+		if err != nil {
+			panic(err.Error())
+		}
 	}
 	env := pkg.NewEnv(homeDir, "tflintenv", "tflint", fallbackInstaller)
 
@@ -54,7 +63,7 @@ func main() {
 		},
 	}
 
-    var cmdBinaryPath = &cobra.Command{
+	var cmdBinaryPath = &cobra.Command{
 		Use:   "path",
 		Short: "Get the full path to current binary",
 		RunE: func(cmd *cobra.Command, args []string) error {
