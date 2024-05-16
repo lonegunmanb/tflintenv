@@ -44,9 +44,9 @@ func main() {
 
 	// Run the command and pass through exit code
 	if err := cmd.Run(); err != nil {
-		var pe *exec.ExitError
-		if errors.As(err, &pe) {
-			os.Exit(pe.ExitCode())
+		var ee *exec.ExitError
+		if errors.As(err, &ee) {
+			os.Exit(ee.ExitCode())
 		}
 		os.Stderr.WriteString(fmt.Sprintf("Error executing command but could not get exit code: %s\n", err))
 		os.Exit(1)
