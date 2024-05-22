@@ -160,8 +160,15 @@ func main() {
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 
-	// Run the command
-	_ = cmd.Run()
+	// Run the command and pass through exit code
+	if err := cmd.Run(); err != nil {
+		var ee *exec.ExitError
+		if errors.As(err, &ee) {
+			os.Exit(ee.ExitCode())
+		}
+		os.Stderr.WriteString(fmt.Sprintf("Error executing command but could not get exit code: %s\n", err))
+		os.Exit(1)
+	}
 }
 
 func currentBinaryPath() (string, error) {
