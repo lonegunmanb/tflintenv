@@ -1,6 +1,6 @@
 module github.com/lonegunmanb/tflintenv
 
-go 1.22
+go 1.23
 
 require (
 	github.com/prashantv/gostub v1.1.0
