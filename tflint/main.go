@@ -49,7 +49,7 @@ func main() {
 		if errors.As(err, &ee) {
 			os.Exit(ee.ExitCode())
 		}
-		os.Stderr.WriteString(fmt.Sprintf("Error executing command but could not get exit code: %s\n", err))
+		_, _ = os.Stderr.WriteString(fmt.Sprintf("Error executing command but could not get exit code: %s\n", err))
 		os.Exit(1)
 	}
 }

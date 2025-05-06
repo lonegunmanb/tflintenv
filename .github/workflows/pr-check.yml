@@ -32,6 +32,13 @@ jobs:
         run: |
           go generate github.com/lonegunmanb/tflintenv/...
           go test -v github.com/lonegunmanb/tflintenv/...
+      - name: Check for uncommitted changes
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "Uncommitted changes detected after running tests:"
+            git status --porcelain
+            exit 1
+          fi
       - name: golangci-lint
         run: |
           docker run --rm -v $(pwd):/app -w /app golangci/golangci-lint:v2.1.6-alpine golangci-lint run -v --timeout=3600s
