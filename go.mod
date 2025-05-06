@@ -6,7 +6,7 @@ toolchain go1.24.1
 require (
 	github.com/prashantv/gostub v1.1.0
 	github.com/spf13/afero v1.14.0
-	go.uber.org/mock v0.5.0
+	go.uber.org/mock v0.5.2
 	golang.org/x/text v0.23.0 // indirect
 )
 
