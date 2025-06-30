@@ -19,7 +19,7 @@ require (
 )
 
 require (
-	github.com/Masterminds/semver/v3 v3.3.1
+	github.com/Masterminds/semver/v3 v3.4.0
 	github.com/hashicorp/go-getter/v2 v2.2.3
 	github.com/lonegunmanb/genv v0.0.0-20240517004312-c346acd5a0b6
 	github.com/spf13/cobra v1.9.1
