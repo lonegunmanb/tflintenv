@@ -22,7 +22,7 @@ require (
 	github.com/Masterminds/semver/v3 v3.4.0
 	github.com/hashicorp/go-getter/v2 v2.2.3
 	github.com/lonegunmanb/genv v0.0.0-20240517004312-c346acd5a0b6
-	github.com/spf13/cobra v1.9.1
+	github.com/spf13/cobra v1.10.1
 	github.com/xianic/fslock v1.0.1
 )
 
@@ -37,7 +37,7 @@ require (
 	github.com/klauspost/compress v1.11.2 // indirect
 	github.com/mitchellh/go-homedir v1.0.0 // indirect
 	github.com/mitchellh/go-testing-interface v1.0.0 // indirect
-	github.com/spf13/pflag v1.0.6 // indirect
+	github.com/spf13/pflag v1.0.9 // indirect
 	github.com/ulikunitz/xz v0.5.8 // indirect
 	golang.org/x/sys v0.29.0 // indirect
 )
